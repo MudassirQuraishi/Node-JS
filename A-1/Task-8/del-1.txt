@@ -1,0 +1,2 @@
+streams are used to when a heavy task is to done and rather than sending the fie in one go, it is broken into chunks or smaller sections and sent. the sections received are parsed rather than waiting for the whole file.
+buffer represents the small amount of data stored in ram, that manages a block of data and sends it for processing , if buffer is full then it is sent out for processing;
