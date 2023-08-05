@@ -4,4 +4,4 @@ const routes = require('./routes.js');
 
 const server = http.createServer(routes);
 
-server.listen(1000);
+server.listen(1000)

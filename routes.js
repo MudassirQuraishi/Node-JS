@@ -21,19 +21,14 @@ const reqHandler =(req,res)=> {
 });
 } else if (url === '/message' && method === 'POST'){
 
-// chunks can be said as pieces of body that are being sent through stream
-// inorder to store them we will be using an array
 const body = [];
 
-// on is a event listener, and it listens for data
-// and the chunks recieved will be pushed into the array
+
 req.on('data', (chunk) => { console.log(chunk);body.push(chunk);  });  
 
 
 req.on('end', () => {
-    // now we are parsing the chunks into a single element
-    // here we use bufferred data and concat it to body and conver it into  string
-    //and buffer also holds some chunks so we add it to the body[]
+
     const parsedBody = Buffer.concat(body).toString();
     const message = parsedBody.split('=')[1];
     fs.writeFile('message.txt',message, (err)=>{
@@ -53,10 +48,7 @@ req.on('end', () => {
 
 
 
-module.exports = reqHandler;
-
-
-// exports.handlerofRoutes = reqHandler;
+module.exports = reqHandler; 
 
 
 // module.exports={
